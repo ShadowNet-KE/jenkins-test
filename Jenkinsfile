@@ -17,10 +17,14 @@ pipeline {
 //                 sh 'ansible-galaxy collection install buluma.workstation'
 //             }
 //         }
-        stage('Bootstrap') {
+        stage('Prepare') {
             steps {
                 sh 'python -m pip install -r requirements.txt'
                 sh 'ansible-galaxy install -r requirements.yml'
+            }
+        }
+        stage('Converge') {
+            steps {
                 sh 'ansible-playbook playbook.yml -vv'
             }
         }
