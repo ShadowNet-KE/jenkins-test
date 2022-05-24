@@ -1,5 +1,8 @@
 pipeline {
     agent { label 'docker' }
+    options {
+        ansiColor('xterm')
+    }
     stages {
         stage('Check Ansible') {
             steps {
