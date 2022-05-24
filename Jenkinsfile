@@ -27,6 +27,7 @@ pipeline {
 //         }
         stage('Ansible Role Test') {
             steps {
+                sh 'python -m pip --user install -r requirements.txt'
                 sh 'ansible-galaxy install -r requirements.yml'
                 sh 'ansible-playbook playbook.yml -vv'
             }
