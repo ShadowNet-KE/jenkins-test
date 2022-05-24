@@ -20,14 +20,14 @@ pipeline {
         stage('Checkout Role') {
             steps {
                 git branch: 'main',
-                url: 'https://github.com/buluma/ansible-playbook-zabbix.git'
+                url: 'https://github.com/buluma/ansible_workstation.git'
                 sh 'ls -lh'
-                sh 'ansible-galaxy collection install buluma.roles'
+                sh 'ansible-galaxy collection install buluma.workstation'
             }
         }
         stage('Ansible Role Test') {
             steps {
-                sh 'ansible-galaxy install -r roles/requirements.yml'
+                sh 'ansible-galaxy install -r requirements.txt'
                 sh 'ansible-playbook playbook.yml -vv'
             }
         }
