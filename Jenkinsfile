@@ -16,5 +16,10 @@ pipeline {
                 sh 'ansible all -m ping'
             }
         }
+        stage('Ansible Role Test') {
+            steps {
+                sh 'ansible-playbook playbook.yml -vv'
+            }
+        }
     }
 }
