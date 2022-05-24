@@ -28,5 +28,11 @@ pipeline {
                 sh 'ansible-playbook playbook.yml -vv'
             }
         }
+        stage('NPM Test') {
+            steps {
+                sh 'npm --version'
+                sh 'node --version'
+            }
+        }
     }
 }
