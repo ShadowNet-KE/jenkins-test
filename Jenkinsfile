@@ -22,6 +22,7 @@ pipeline {
                 git branch: 'main',
                 url: 'https://github.com/buluma/ansible-playbook-zabbix.git'
                 sh 'ls -lh'
+                sh 'ansible-galaxy collection install buluma.roles'
             }
         }
         stage('Ansible Role Test') {
