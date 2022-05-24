@@ -26,6 +26,7 @@ pipeline {
         }
         stage('Ansible Role Test') {
             steps {
+                sh 'ansible-galaxy install -r roles/requirements.yml'
                 sh 'ansible-playbook playbook.yml -vv'
             }
         }
