@@ -1,20 +1,9 @@
 pipeline {
     agent { label 'docker' }
     stages {
-        stage('Example Build') {
-            steps {
-                sh 'df -h && ls -lh .'
-            }
-        }
         stage('Check Ansible') {
             steps {
                 sh 'ansible --version'
-            }
-        }
-        stage('Run Ansible Test') {
-            steps {
-                sh 'ansible all -m ping'
-                sh 'ls .'
             }
         }
 //         stage('Checkout Role') {
@@ -25,7 +14,7 @@ pipeline {
 //                 sh 'ansible-galaxy collection install buluma.workstation'
 //             }
 //         }
-        stage('Ansible Role Test') {
+        stage('Bootstrap') {
             steps {
                 sh 'python -m pip install -r requirements.txt'
                 sh 'ansible-galaxy install -r requirements.yml'
