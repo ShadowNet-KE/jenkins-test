@@ -17,10 +17,10 @@ pipeline {
                 sh 'ls .'
             }
         }
-        stage('Ansible Role Test') {
-            steps {
-                // sh 'ansible-playbook playbook.yml -vv'
-            }
-        }
+//         stage('Ansible Role Test') {
+//             steps {
+//                 sh 'ansible-playbook playbook.yml -vv'
+//             }
+//         }
     }
 }
