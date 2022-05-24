@@ -3,3 +3,7 @@
   gather_facts: yes
   roles:
     - role: buluma.bootstrap
+    - role: buluma.common
+    - role: buluma.ca_certificates
+    - role: buluma.buildtools
+    - role: buluma.npm
