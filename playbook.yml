@@ -4,3 +4,9 @@
   roles:
     - role: buluma.bootstrap
     - role: buluma.npm
+    
+  tasks:
+    - name: install package with npm
+      community.general.npm:
+        name: debug
+        global: yes
