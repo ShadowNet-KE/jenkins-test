@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Example Build') {
             steps {
-                sh 'df -h'
+                sh 'df -h && ls -lh .'
             }
         }
         stage('Check Ansible') {
@@ -14,11 +14,12 @@ pipeline {
         stage('Run Ansible Test') {
             steps {
                 sh 'ansible all -m ping'
+                sh 'ls .'
             }
         }
         stage('Ansible Role Test') {
             steps {
-                sh 'ansible-playbook playbook.yml -vv'
+                // sh 'ansible-playbook playbook.yml -vv'
             }
         }
     }
