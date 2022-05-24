@@ -17,10 +17,17 @@ pipeline {
                 sh 'ls .'
             }
         }
-//         stage('Ansible Role Test') {
-//             steps {
-//                 sh 'ansible-playbook playbook.yml -vv'
-//             }
-//         }
+        stage('Checkout Role') {
+            steps {
+                git branch: 'main',
+                url: 'https://github.com/buluma/ansible-playbook-zabbix.git'
+                sh 'ls -lh'
+            }
+        }
+        stage('Ansible Role Test') {
+            steps {
+                sh 'ansible-playbook playbook.yml -vv'
+            }
+        }
     }
 }
