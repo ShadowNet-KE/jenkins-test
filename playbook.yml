@@ -1,6 +1,5 @@
 ---
-- hosts: local
-  connection: local
+- hosts: localhost
   gather_facts: yes
   roles:
     - role: buluma.bootstrap
